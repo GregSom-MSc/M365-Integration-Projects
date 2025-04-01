@@ -21,11 +21,12 @@ token = response["access_token"]
 # Send message to Teams
 headers = {"Authorization": f"Bearer {token}",
            "Content-Type": "application/json"}
-message = {"body": {"content": "Hello from Grok! 😊"}}
+message = {"body": {
+    "content": "Hello, this is Som, your best Project Manager! 😊 Let's schedule a meeting to fix new Jira Items."}}
 url = f"https://graph.microsoft.com/v1.0/teams/{team_id}/channels/{channel_id}/messages"
 response = requests.post(url, headers=headers, json=message)
 
 if response.status_code == 201:
-    print("Message sent successfully! 🌟")
+    print("Message sent successfully! 🌟 Sunny day ahead.")
 else:
-    print(f"Oops! Something went wrong: {response.text}")
+    print(f"Oops! Something went wrong, we are sad: {response.text}")
